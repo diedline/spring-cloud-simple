@@ -1,0 +1,82 @@
+spring:
+  application:
+    name: changan-gateway
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.8.200:3306/middle?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: Root123!
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  devtools:
+    restart:
+      enabled: false
+mybatis:
+  mapper-locations: classpath*:com/cihon/changan/**/dao/**Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  port: 8080
+eureka:
+  instance:
+    hostname: 192.168.8.200
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://192.168.8.200:8001/eureka/
+
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+zuul:
+  ignored-services: "*"
+  sensitive-headers:
+  prefix: /api #为zuul设置一个公共的前缀
+#  ratelimit: # 网关限流
+#    key-prefix: gate_rate
+#    enabled: true
+#    repository: REDIS #REDIS, JPA, IN_MEMORY
+#    behind-proxy: true
+#    default-policy: #optional - will apply unless specific policy exists
+#      limit: 200
+#      refresh-interval: 60 #default value (in seconds)
+#      type: #optional
+#        - user
+#        - origin
+#        - url
+  routes:
+    middle:
+      path: /middlelPlatform/**
+      serviceId: gateway-middlelPlatform
+
+    project:
+      path: /project/**
+      serviceId: changan-project
+
+logging:
+  level:
+    root: info
+    com.cihon.common.dao: debug
+  file: ${user.home}/logs/hello.log
+
+#scheduling:
+#  executor:
+#    threadPool: 5
+##驾驶表定时任务 0 15 02 * * ?
+#driverStatScheduler:
+#  flag: false
+#  cron: '0 0/2 * * * ?'
+##驾驶扩展表定时任务
+#driverExtendStatScheduler:
+#  flag: false
+#  cron: '0 0/2 * * * ?'
+##动力性能定时任务
+#powerPerformanceScheduler:
+#  flag: true
+#  cron: '0 0/2 * * * ?'
