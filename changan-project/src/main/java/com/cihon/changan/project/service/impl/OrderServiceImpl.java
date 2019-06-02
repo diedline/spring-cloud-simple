@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 @Service
 @Transactional(rollbackFor = {RuntimeException.class})
 public class OrderServiceImpl implements IOrderService {
@@ -54,5 +55,14 @@ public class OrderServiceImpl implements IOrderService {
             orderList.add(order);
         }
         return orderList;
+    }
+
+    @Override
+    public int countOrder(int id) {
+        OrderDetailsExample orderDetailsExample = new OrderDetailsExample();
+        OrderDetailsExample.Criteria criteria = orderDetailsExample.createCriteria();
+        criteria.andIdEqualTo(id);
+        List<OrderDetails> orderDetails = orderDetailsMapper.selectByExample(orderDetailsExample);
+        return orderDetails.size();
     }
 }

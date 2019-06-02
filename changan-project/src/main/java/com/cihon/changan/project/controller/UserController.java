@@ -3,6 +3,7 @@ package com.cihon.changan.project.controller;
 
 import com.cihon.changan.common.model.dto.R;
 import com.cihon.changan.project.service.IOrderService;
+import com.cihon.changan.project.service.IStatisticalService;
 import com.cihon.changan.project.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,9 @@ public class UserController {
 
     @Autowired
     IOrderService orderService;
+
+    @Autowired
+    IStatisticalService statisticalService;
 
     @RequestMapping("getAllUser")
     public R getAllUser(){
@@ -33,6 +37,11 @@ public class UserController {
     }
 
 
-
+    @RequestMapping("getAllStatistical")
+    public R getAllStatistical(){
+        R r= new R();
+        r.setData(statisticalService.getAllPara());
+        return r;
+    }
 
 }

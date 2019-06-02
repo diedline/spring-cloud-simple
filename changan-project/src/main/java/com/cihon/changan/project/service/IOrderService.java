@@ -10,4 +10,6 @@ public interface IOrderService {
     List<Order> getAllOrder();
 
 
+    /** 根据id获取该用户所有的订单数*/
+    int countOrder(int id);
 }
