@@ -1,11 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Hello World!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>layout 后台大布局 - Layui</title>
+    <link th:href="@{/layui/css/layui.css}" rel="stylesheet"/>
 </head>
-<body>
-<h1 th:inline="text">Hello</h1>
-<p th:text="${hello}"></p>
+<body class="layui-layout-body">
+
+<div class="layui-body" style="padding: 20px; background-color: #F2F2F2;">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md10">
+            <div class="layui-card">
+                <div class="layui-card-header" align="center">获取订单</div>
+                <div class="layui-card-body" align="center">
+                    <table id="manageOrder" lay-filter="manageOrder"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/layui/layui.js}"></script>
+<script th:inline="none">
+    layui.use(['element','table','jquery','layer'], function(){
+        var element = layui.element;
+        var table = layui.table;
+        var $ = layui.jquery;
+        var layer = layui.layer;
+
+        table.render({
+            elem: '#manageOrder'
+            ,height:500
+            ,width:850
+            ,method:'post'
+            ,url: '/index/getAllOrder' //数据接口
+            ,contentType:'application/json'
+            ,parseData:function(data){
+                return{
+                    "code":data.code,
+                    "msg":data.msg,
+                    "data":data.data
+                };
+            }
+            ,cols: [[ //表头
+                {field: 'orderNum', title: '订单号', width:90}
+                ,{field: 'commoditId', title: 'commoditId', width:150}
+                ,{field: 'type', title: 'type', width:150}
+                ,{field: 'num', title: 'num', width:150}
+                ,{field: 'user', title: 'user', width:150}
+                ,{field:'trade_name',title:'trade_name',width:150,fixed: 'right'}
+                ]]
+        });
+    });
+</script>
 </body>
 </html>

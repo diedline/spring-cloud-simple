@@ -3,7 +3,7 @@ spring:
     name: changan-project
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://169.254.28.135/back?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/back?useUnicode=true&characterEncoding=utf8
     username: root
     password: dljyxx225
   jackson:
@@ -19,7 +19,7 @@ spring:
     encoding: UTF-8
     servlet:
       content-type: text/html
-    prefix: classpath:/templates
+    prefix: classpath:/templates/
     suffix: .html
   resources:
     chain:

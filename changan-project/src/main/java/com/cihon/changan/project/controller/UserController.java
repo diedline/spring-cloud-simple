@@ -32,6 +32,7 @@ public class UserController {
     @RequestMapping("getAllOrder")
     public R getAllOrder(){
         R r= new R();
+        r.setCode(0);
         r.setData(orderService.getAllOrder());
         return r;
     }
