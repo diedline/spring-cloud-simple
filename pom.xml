@@ -17,18 +17,8 @@
 	<modules>
 		<module>changan-eureka</module>
 		<module>changan-common</module>
-<!--		<module>gateway-portal</module>-->
-<!--		<module>gateway-task</module>-->
-		<module>changan-gateway</module>
-		<module>changan-project</module>
-		<module>changan-DBPM</module>
-		<module>changan-datasync</module>
-		<module>changan-download</module>
-		<module>changan-middlelPlatform</module>
-		<module>changan-dataAssetOverview</module>
-		<module>changan-message</module>
 		<module>Generator</module>
-
+		<module>changan-project</module>
 	</modules>
 
 	<developers>

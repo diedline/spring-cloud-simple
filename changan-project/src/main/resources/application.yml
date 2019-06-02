@@ -12,6 +12,23 @@ spring:
   devtools:
     restart:
       enabled: false
+
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    prefix: classpath:/templates
+    suffix: .html
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+
+
 mybatis:
   mapper-locations: classpath*:com/cihon/changan/**/dao/**Mapper.xml
   configuration:
@@ -31,19 +48,4 @@ eureka:
 logging:
   level:
     com.cihon.changan.project.dao: DEBUG
-
-#scheduling:
-#  executor:
-#    threadPool: 5
-##驾驶表定时任务 0 15 02 * * ?
-#driverStatScheduler:
-#  flag: false
-#  cron: '0 0/2 * * * ?'
-##驾驶扩展表定时任务
-#driverExtendStatScheduler:
-#  flag: false
-#  cron: '0 0/2 * * * ?'
-##动力性能定时任务
-#powerPerformanceScheduler:
-#  flag: true
-#  cron: '0 0/2 * * * ?'
+#thymelea模板配置

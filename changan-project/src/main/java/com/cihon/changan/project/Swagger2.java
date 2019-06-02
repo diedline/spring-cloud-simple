@@ -29,7 +29,7 @@ public class Swagger2 {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("长安新能源大数据平台").description("RESTful 风格接口")
+        return new ApiInfoBuilder().title("数据库作业").description("RESTful 风格接口")
             .version("1.0")
             .build();
     }
