@@ -25,6 +25,7 @@ public class UserController {
     @RequestMapping("getAllUser")
     public R getAllUser(){
         R r = new R();
+        r.setCode(0);
         r.setData(userService.getAccount());
         return r;
     }
@@ -41,6 +42,7 @@ public class UserController {
     @RequestMapping("getAllStatistical")
     public R getAllStatistical(){
         R r= new R();
+        r.setCode(0);
         r.setData(statisticalService.getAllPara());
         return r;
     }

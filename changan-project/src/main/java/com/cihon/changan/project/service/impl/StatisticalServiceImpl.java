@@ -1,8 +1,8 @@
 package com.cihon.changan.project.service.impl;
 
-import com.cihon.changan.common.dao.StatisticsMapper;
-import com.cihon.changan.common.model.vo.Statistics;
-import com.cihon.changan.common.model.vo.StatisticsExample;
+import com.cihon.changan.common.dao.TStatisticsMapper;
+import com.cihon.changan.common.model.vo.TStatistics;
+import com.cihon.changan.common.model.vo.TStatisticsExample;
 import com.cihon.changan.project.service.IStatisticalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,13 +17,13 @@ import java.util.List;
 public class StatisticalServiceImpl implements IStatisticalService {
 
     @Autowired
-    StatisticsMapper statisticsMapper;
+    TStatisticsMapper statisticsMapper;
 
 
 
     @Override
-    public List<Statistics> getAllPara() {
-        StatisticsExample statisticsExample = new StatisticsExample();
+    public List<TStatistics> getAllPara() {
+        TStatisticsExample statisticsExample = new TStatisticsExample();
         return statisticsMapper.selectByExample(statisticsExample);
     }
 }

@@ -49,7 +49,7 @@ public class OrderServiceImpl implements IOrderService {
             //设置商品数量
             order.setNum(orderDetails.getNumber());
             //购买人姓名
-            AccountInfWithBLOBs accountInf = accountInfMapper.selectByPrimaryKey(orderDetails.getId());
+            AccountInf accountInf = accountInfMapper.selectByPrimaryKey(orderDetails.getId());
             order.setUser(accountInf.getZhifubaoname());
 
             orderList.add(order);
