@@ -11,7 +11,7 @@
  Target Server Version : 80012
  File Encoding         : 65001
 
- Date: 02/06/2019 12:59:33
+ Date: 08/06/2019 12:33:21
 */
 
 SET NAMES utf8mb4;
@@ -23,10 +23,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `account_inf`;
 CREATE TABLE `account_inf`  (
   `id` int(11) NOT NULL,
-  `headimg` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `weixingAccount` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `zhifubaoAccount` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `zhifubaoname` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `headimg` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `weixingAccount` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `zhifubaoAccount` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `zhifubaoname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `tel` int(11) NULL DEFAULT NULL,
   `Superior` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `level` int(11) NULL DEFAULT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE `administrator`  (
   `user_name` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `user_pwd` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 44 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of administrator
@@ -207,7 +207,7 @@ CREATE TABLE `django_content_type`  (
   `model` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `django_content_type_app_label_model_76bd3d3b_uniq`(`app_label`, `model`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of django_content_type
@@ -251,10 +251,10 @@ INSERT INTO `order_details` VALUES (5, 12, 1, 4);
 INSERT INTO `order_details` VALUES (6, 12, 1, 4);
 
 -- ----------------------------
--- Table structure for statistics
+-- Table structure for t_statistics
 -- ----------------------------
-DROP TABLE IF EXISTS `statistics`;
-CREATE TABLE `statistics`  (
+DROP TABLE IF EXISTS `t_statistics`;
+CREATE TABLE `t_statistics`  (
   `id` int(10) NOT NULL,
   `one` int(10) NULL DEFAULT NULL,
   `two` int(10) NULL DEFAULT NULL,
@@ -267,11 +267,11 @@ CREATE TABLE `statistics`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of statistics
+-- Records of t_statistics
 -- ----------------------------
-INSERT INTO `statistics` VALUES (1, 10, 15, 30, 100, 890, 2233, 1);
-INSERT INTO `statistics` VALUES (2, 100, 10000, 10000, 120, 222222, 22222, 2);
-INSERT INTO `statistics` VALUES (3, 50, 100, 300, 100, 200, 300, 3);
+INSERT INTO `t_statistics` VALUES (1, 10, 15, 30, 100, 890, 2233, 1);
+INSERT INTO `t_statistics` VALUES (2, 100, 10000, 10000, 120, 222222, 22222, 2);
+INSERT INTO `t_statistics` VALUES (3, 50, 100, 300, 100, 200, 300, 3);
 
 -- ----------------------------
 -- View structure for view_account
