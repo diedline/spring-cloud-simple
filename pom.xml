@@ -45,7 +45,7 @@
 		<lombok.version>1.16.20</lombok.version>
 		<swagger.version>2.7.0</swagger.version>
 		<hibernate-validator.version>5.3.6.Final</hibernate-validator.version>
-		<poi.version>3.13</poi.version>
+		<poi.version>4.1.1</poi.version>
 		<poi-ooxml.version>3.13</poi-ooxml.version>
 		<commons-lang3.version>3.8.1</commons-lang3.version>
 		<commons-collections.version>3.2.2</commons-collections.version>
